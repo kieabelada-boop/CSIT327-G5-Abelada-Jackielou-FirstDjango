@@ -7,7 +7,7 @@ G5
 
 1. **Clone the Repository**
    ```bash
-   git clone <your-repository-url>
+   git clone (https://github.com/kieabelada-boop/CSIT327-G5-Abelada-Jackielou-FirstDjango.git)
    cd campusconnect
 
    python -m venv .venv
