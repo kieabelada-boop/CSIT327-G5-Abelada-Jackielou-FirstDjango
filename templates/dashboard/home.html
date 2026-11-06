@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+        <h1 class="h2 mb-1">Welcome, {{ user.first_name|default:user.username }}!</h1>
+        <p class="text-secondary mb-0">Your CampusConnect overview</p>
+    </div>
+    <a class="btn btn-outline-primary" href="{% url 'profile' %}">Edit profile</a>
+</div>
+<div class="card shadow-sm">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between"><span class="text-secondary">Role</span><strong>{{ user.get_role_display }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between"><span class="text-secondary">Course</span><strong>{{ user.course|default:"Not set" }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between"><span class="text-secondary">Members</span><strong>{{ member_count }}</strong></li>
+        <li class="list-group-item d-flex justify-content-between"><span class="text-secondary">Last login</span><strong>{{ user.last_login|date:"M d, Y" }}</strong></li>
+    </ul>
+</div>
+{% if is_admin %}<a class="btn btn-outline-secondary mt-3" href="{% url 'admin_panel' %}">Open admin panel</a>{% endif %}
+{% endblock %}
